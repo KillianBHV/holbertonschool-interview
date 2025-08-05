@@ -7,6 +7,9 @@ SCRIPT 0 - LOCKBOXES ALGORITHM
 def canUnlockAll(boxes):
     """
     Return if all the boxes can be unlocked
+
+    :param boxes: boxes to pass through
+    :return: all digitFound
     """
     digitFound = []
     for i in range(len(boxes)):
