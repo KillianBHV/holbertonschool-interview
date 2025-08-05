@@ -17,7 +17,7 @@ def canUnlockAll(boxes):
 
     for box in range(len(boxes)):
         for element in range(len(boxes[box])):
-            if boxes[box][element] in boxes[box]:
+            if len(boxes[box]) == 0 or boxes[box][element] in boxes[box]:
                 digitFound[box] = True
                 break
 
