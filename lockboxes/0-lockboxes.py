@@ -1,4 +1,9 @@
 #!/usr/bin/python3
+"""
+SCRIPT 0 - LOCKBOXES ALGORITHM
+"""
+
+
 def canUnlockAll(boxes):
     """
     Return if all the boxes can be unlocked
