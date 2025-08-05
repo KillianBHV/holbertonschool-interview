@@ -1,5 +1,8 @@
 #!/usr/bin/python3
 def canUnlockAll(boxes):
+    """
+    Return if all the boxes can be unlocked
+    """
     digitFound = []
     for i in range(len(boxes)):
         digitFound.append(False)
