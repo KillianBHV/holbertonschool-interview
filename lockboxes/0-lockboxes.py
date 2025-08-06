@@ -7,18 +7,44 @@ SCRIPT 0 - LOCKBOXES ALGORITHM
 def canUnlockAll(boxes):
     """
     Return if all the boxes can be unlocked
+    An empty packet of boxes is automatically unlocked
 
     :param boxes: boxes to pass through
-    :return: all digitFound
+    :return: is all digitFound
     """
+    if len(boxes) == 0:
+        return True
+
     digitFound = []
     for i in range(len(boxes)):
-        digitFound.append(False)
+        if len(boxes[i]) == 0:
+            digitFound.append(True)
+        else:
+            digitFound.append(False)
+    digitFound[0] = True
 
-    for box in range(len(boxes)):
-        for element in range(len(boxes[box])):
-            if len(boxes[box]) == 0 or boxes[box][element] in boxes[box]:
-                digitFound[box] = True
-                break
+    for i in range(len(boxes)):
+        if len(boxes[i]) == 0:
+            digitFound[i] = True
+            continue
+
+        if digitFound[i]:
+            for j in range(len(boxes[i])):
+                digitFound[boxes[i][j]] = True
+
+    researchIndex = []
+    for i in range(len(boxes)):
+        if digitFound[i]:
+            researchIndex.extend(boxes[i])
+    """ [OPTIONAL] We remove all duplicate values
+    """
+    researchIndex = list(set(researchIndex))
+
+    for i in range(len(boxes)):
+        if not digitFound[i]:
+            for j in range(len(boxes[i])):
+                if boxes[i][j] in researchIndex:
+                    digitFound[i] = True
+                    break
 
     return all(digitFound)
