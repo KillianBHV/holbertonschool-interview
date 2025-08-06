@@ -29,8 +29,8 @@ def canUnlockAll(boxes):
             continue
 
         if digitFound[i]:
-            for j in range(len(boxes[i])):
-                if 0 <= digitFound[boxes[i][j]] <= len(boxes[i]):
+            for j in range(len(boxes[i])): 
+                if 0 <= boxes[i][j] <= len(boxes):
                     digitFound[boxes[i][j]] = True
 
     researchIndex = []
