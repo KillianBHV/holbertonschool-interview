@@ -9,8 +9,6 @@ def canUnlockAll(boxes):
     Return if all the boxes can be unlocked
     An empty packet of boxes is automatically unlocked
 
-    ----- TRANSLATION REQUIRED -----
-
     :param boxes: boxes to pass through
     :return: is all digitFound
     """
