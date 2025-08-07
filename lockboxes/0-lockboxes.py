@@ -28,10 +28,9 @@ def canUnlockAll(boxes):
         else:
             if box_valid_list[i][1]:
                 box_index_list[i] = -1
-                continue
 
             for j in range(len(boxes[i])):
-                if boxes[i][j] >= len(boxes):
+                if not 0 <= boxes[i][j] < box_size:
                     boxes[i][j] = -1
 
     for i in range(box_size):
@@ -39,7 +38,7 @@ def canUnlockAll(boxes):
             for j in range(len(boxes[i])):
                 if not boxes[i][j] < 0:
                     box_valid_list[boxes[i][j]][1] = True
-                    box_index_list[boxes[i][j]] = -1
+                    box_index_list[boxes[i][j]] = -4
 
     back_values_search = []
     for i in range(box_size):
