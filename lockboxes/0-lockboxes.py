@@ -9,43 +9,52 @@ def canUnlockAll(boxes):
     Return if all the boxes can be unlocked
     An empty packet of boxes is automatically unlocked
 
+    ----- TRANSLATION REQUIRED -----
+
     :param boxes: boxes to pass through
     :return: is all digitFound
     """
-    if len(boxes) == 0:
-        return True
+    box_size = len(boxes)
+    box_index_list = []
+    box_valid_list = []
 
-    digitFound = []
-    for i in range(len(boxes)):
+    for i in range(box_size):
+        box_index_list.append(i)
+        box_valid_list.append([i, False])
+    box_valid_list[0][1] = True
+
+    for i in range(box_size):
         if len(boxes[i]) == 0:
-            digitFound.append(True)
+            box_index_list[i] = -1
+            box_valid_list[i][1] = True
         else:
-            digitFound.append(False)
-    digitFound[0] = True
+            if box_valid_list[i][1]:
+                box_index_list[i] = -1
+                continue
 
-    for i in range(len(boxes)):
-        if len(boxes[i]) == 0:
-            digitFound[i] = True
-            continue
-
-        if digitFound[i]:
             for j in range(len(boxes[i])):
-                if 0 <= boxes[i][j] < len(boxes):
-                    digitFound[boxes[i][j]] = True
+                if boxes[i][j] >= len(boxes):
+                    boxes[i][j] = -1
 
-    researchIndex = []
-    for i in range(len(boxes)):
-        if digitFound[i]:
-            researchIndex.extend(boxes[i])
-    """ [OPTIONAL] We remove all duplicate values
-    """
-    researchIndex = list(set(researchIndex))
-
-    for i in range(len(boxes)):
-        if not digitFound[i]:
+    for i in range(box_size):
+        if box_valid_list[i][1]:
             for j in range(len(boxes[i])):
-                if boxes[i][j] in researchIndex:
-                    digitFound[i] = True
-                    break
+                box_valid_list[boxes[i][j]][1] = True
+                box_index_list[boxes[i][j]] = -1
 
-    return all(digitFound)
+    back_values_search = []
+    for i in range(box_size):
+        if box_valid_list[i][1]:
+            for j in range(len(boxes[i])):
+                if not boxes[i][j] < 0:
+                    back_values_search.append(boxes[i][j])
+
+    back_values_search = list(set(back_values_search))
+    for i in range(len(boxes)):
+        if i in back_values_search:
+            box_valid_list[i][1] = True
+
+    for i in range(len(box_valid_list)):
+        box_valid_list[i] = box_valid_list[i][1]
+
+    return all(box_valid_list)
