@@ -24,5 +24,4 @@ def minOperations(n):
         else:
             modulo += 1
 
-    print(facteurs)
     return sum(facteurs)
