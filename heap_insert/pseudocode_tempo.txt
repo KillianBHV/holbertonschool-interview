@@ -1,0 +1,70 @@
+# Valeur à insérer : /402/ --- CURRENT ROOT : 98
+/402/ > 98 ? OUI
+|___ Le champ "parent" de 98 devient l'adresse de 402
+|___ Le champ "parent" de 402 devient NULL                  # NEW ROOT : 402
+
+402->left == NULL ? OUI
+|___ Le champ "left" de 402 devient l'adresse de 98
+
+
+
+
+# Valeur à insérer : /12/ --- CURRENT ROOT : 402
+/12/ > 402 ? NON
+
+402->left == NULL ? NON
+
+402->right == NULL ? OUI
+|___ Le champ "right" de 402 devient l'adresse de 12
+
+
+
+
+# Valeur à insérer : 46 --- CURRENT ROOT : 402
+/46/ > 402 ? NON
+
+402->left == NULL ? NON
+
+402->right == NULL ? NON
+
+/46/ > 98 ? NON
+
+98->left == NULL ? OUI
+|___ Le champ "left" de 98 devient l'adresse de 46
+
+
+
+
+# Valeur à insérer : 128 --- CURRENT ROOT : 402
+/128/ > 402 ? NON
+
+402->left == NULL ? NON
+
+402->right == NULL ? NON
+
+/128/ > 98 ? OUI
+|___ Le champ "left" de 128 devient la valeur du champ "left" de 98
+|___ Le champ "right" de 128 devient l'adresse de 98
+|___ Le champ "parent" de 128 devient la valeur du champ "parent" de 98
+|___ Le champ "parent" de 98 devient l'adresse de 128
+|___ Le champ "left" de 98 redevient NULL
+|___ Le champ "left" du parent de 98 devient l'adresse de 128
+|___ Le champ "parent" de 98 devient l'adresse de 128
+
+
+
+
+
+# Valeur à insérer : 256 --- CURRENT ROOT : 402
+/256/ > 402 ? NON
+
+402->left == NULL ? NON
+
+402->right == NULL ? NON
+
+/256/ > 128 ? OUI
+|___ Le champ "parent" de 256 devient la valeur du champ "parent" de 128
+|___ Le champ "left" de 256 devient la valeur du champ "right" du parent de 128
+|___ Le champ "right" du parent de 128 devient l'adresse de 256
+|___ Le champ "parent" de l'enfant gauche de 256 devient l'adresse de 256
+
