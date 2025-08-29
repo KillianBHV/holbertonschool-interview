@@ -1,70 +1,73 @@
-# Valeur à insérer : /402/ --- CURRENT ROOT : 98
-/402/ > 98 ? OUI
-|___ Le champ "parent" de 98 devient l'adresse de 402
-|___ Le champ "parent" de 402 devient NULL                  # NEW ROOT : 402
+### Valeur à insérer : /402/ ###
+A- Insertion step
+98->left = 402
+402->parent = 98
 
-402->left == NULL ? OUI
-|___ Le champ "left" de 402 devient l'adresse de 98
+B- Revert process
+// 402 > 98 ? OUI
+402->left <=> 402->parent
+98->parent <=> 98->left
 
-
-
-
-# Valeur à insérer : /12/ --- CURRENT ROOT : 402
-/12/ > 402 ? NON
-
-402->left == NULL ? NON
-
-402->right == NULL ? OUI
-|___ Le champ "right" de 402 devient l'adresse de 12
+C- Root change
+// 402->parent == NULL ? OUI
+root = 402
 
 
 
 
-# Valeur à insérer : 46 --- CURRENT ROOT : 402
-/46/ > 402 ? NON
+### Valeur à insérer : /12/ ###
+A- Insertion step
+402->right = 12
+12->parent = 402
 
-402->left == NULL ? NON
+B- Revert process
+// 12 > 402 ? NON
 
-402->right == NULL ? NON
-
-/46/ > 98 ? NON
-
-98->left == NULL ? OUI
-|___ Le champ "left" de 98 devient l'adresse de 46
-
-
-
-
-# Valeur à insérer : 128 --- CURRENT ROOT : 402
-/128/ > 402 ? NON
-
-402->left == NULL ? NON
-
-402->right == NULL ? NON
-
-/128/ > 98 ? OUI
-|___ Le champ "left" de 128 devient la valeur du champ "left" de 98
-|___ Le champ "right" de 128 devient l'adresse de 98
-|___ Le champ "parent" de 128 devient la valeur du champ "parent" de 98
-|___ Le champ "parent" de 98 devient l'adresse de 128
-|___ Le champ "left" de 98 redevient NULL
-|___ Le champ "left" du parent de 98 devient l'adresse de 128
-|___ Le champ "parent" de 98 devient l'adresse de 128
+C- Root change
+// 12->parent == NULL ? NON
 
 
 
 
+### Valeur à insérer : /46/ ###
+A- Insertion step
+98->left = 46
+46->parent = 98
 
-# Valeur à insérer : 256 --- CURRENT ROOT : 402
-/256/ > 402 ? NON
+B- Revert process
+// 46 > 98 ? NON
 
-402->left == NULL ? NON
+C- Root change
+// 46->parent == NULL ? NON
 
-402->right == NULL ? NON
 
-/256/ > 128 ? OUI
-|___ Le champ "parent" de 256 devient la valeur du champ "parent" de 128
-|___ Le champ "left" de 256 devient la valeur du champ "right" du parent de 128
-|___ Le champ "right" du parent de 128 devient l'adresse de 256
-|___ Le champ "parent" de l'enfant gauche de 256 devient l'adresse de 256
 
+
+### Valeur à insérer : /128/ ###
+A- Insertion step
+98->right = 128
+128->parent = 98
+
+B- Revert process
+// 128 > 98 ? OUI
+128->left <=> 98->left
+128->right <=> 128->parent
+128->parent <=> 98->parent
+98->parent <=> 98->right
+402->left = 98->parent
+
+C- Root change
+// 128->parent == NULL ? NON
+
+
+
+
+### Valeur à insérer : /256/ ###
+A- Insertion step
+12->left = 256
+256->parent = 12
+
+B- Revert process
+// 256 > 12 ? OUI
+256->left <=> 12->left
+256->right <=> 256->parent
