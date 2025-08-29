@@ -66,5 +66,5 @@ heap_t *swap(heap_t *node)
 		}
 	}
 
-	return (node)
+	return (node);
 }
