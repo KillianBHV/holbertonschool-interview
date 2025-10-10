@@ -32,7 +32,7 @@ def validUTF8(d):
             return False
         elif binary_size == 4 and not binary_value[-8:].startswith('11110'):
             return False
-        elif binary_value == 1 and not binary_value.startswith('10'):
+        elif binary_size == 1 and binary_value.startswith('10'):
             return False
 
     '''All characters are valid
