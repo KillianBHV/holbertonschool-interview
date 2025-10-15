@@ -25,19 +25,21 @@ int to_left(int *line, size_t size)
         if (*current == 0)
         {
             while (*moveNext == 0 && moveNext < line + size - 1) moveNext++;
-            if (moveNext - next != 0)
-            {
-                *current = *moveNext;
-                *moveNext = 0;
-            }
+
+            *current = *moveNext;
+            *moveNext = 0;
             moveNext = next;
         }
 
         if (*next == 0)
         {
             while (*moveNext == 0 && moveNext < line + size - 1) moveNext++;
-            *next = *moveNext;
-            *moveNext = 0;
+
+            if (moveNext - next != 0)
+            {
+                *next = *moveNext;
+                *moveNext = 0;
+            }
         }
         
         if(*current == *next)
