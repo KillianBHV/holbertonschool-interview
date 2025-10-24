@@ -14,7 +14,7 @@ int is_palindrome(unsigned long n)
 	while (modulo_ref != 0)
 	{
 		modulo_iteratif *= 10;
-		modulo_iteratif += modulo_ref % 10;
+		modulo_iteratif = modulo_iteratif + modulo_ref % 10;
 		modulo_ref /= 10;
 	}
 
