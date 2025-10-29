@@ -1,5 +1,12 @@
 #include "menger.h"
 
+/**
+ * menger - Prints 2D Menger
+ *
+ * @level: level to reach
+ *
+ * Return: Nothing
+ */
 void menger(int level)
 {
 	int x, y, n, m, i;
