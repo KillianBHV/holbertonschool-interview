@@ -18,3 +18,5 @@ $ ./palindrome 1221; ./palindrome 1231; ./palindrome 123454321; ./palindrome 123
 123454321 is a palindrome.
 12345654321 is a palindrome.
 ```
+---
+
