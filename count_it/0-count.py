@@ -32,7 +32,7 @@ def count_words(subreddit, word_list, after=None, count={}):
             count[word] = 0
     try:
         data = subreddit_info.json().get("data")
-    except:
+    except ValueError:
         return
     children = data.get("children")
     for child in children:
