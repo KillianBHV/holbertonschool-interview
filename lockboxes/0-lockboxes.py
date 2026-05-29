@@ -1,11 +1,14 @@
 #!/usr/bin/python3
 
-def canUnlockAll(boxes):
-    """
-    Description:
-        Determines if all boxes can be opened
 
-    Params:
+"""Checks boxes to check if we can open them all
+"""
+
+
+def canUnlockAll(boxes: list[list]) -> bool:
+    """Determines if all boxes can be opened
+
+    Args:
         boxes: all boxes with their keys
 
     Returns:
