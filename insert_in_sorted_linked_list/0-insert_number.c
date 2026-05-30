@@ -2,6 +2,15 @@
 #include <stdio.h>
 #include "lists.h"
 
+/**
+ * insert_node - Inserts an element in a sorted singly list
+ * The list is supposed already list
+ *
+ * @head: Pointer to pointer the first node
+ * @number: Number to be inserted
+ *
+ * Return: Pointer to the new node or NULL if it fails
+ */
 listint_t *insert_node(listint_t **head, int number)
 {
 	listint_t *current, *new;
