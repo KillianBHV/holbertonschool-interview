@@ -86,9 +86,6 @@ void sandpiles_sum(int grid1[3][3], int grid2[3][3])
 
 	while (!is_stabilized_sandpile(grid1))
 	{
-		printf("=\n");
-		print_grid(grid1);
-
 		for (i = 0; i < 3; i++)
 		{
 			for (j = 0; j < 3; j++)
@@ -106,8 +103,7 @@ void sandpiles_sum(int grid1[3][3], int grid2[3][3])
 				grid1[i][j] -= 4;
 			}
 		}
+		printf("=\n");
+		print_grid(grid1);
 	}
-
-	printf("=\n");
-	print_grid(grid1);
 }
