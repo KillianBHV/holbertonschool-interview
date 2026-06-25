@@ -3,6 +3,26 @@
 #include "sandpiles.h"
 
 /**
+ * print_grid - Print 3x3 grid
+ * @grid: 3x3 grid
+ */
+static void print_grid(int grid[3][3])
+{
+	int i, j;
+
+	for (i = 0; i < 3; i++)
+	{
+		for (j = 0; j < 3; j++)
+		{
+			if (j)
+				printf(" ");
+			printf("%d", grid[i][j]);
+		}
+		printf("\n");
+	}
+}
+
+/**
  * is_stabilized_sandpile - Checks if all cells are less than or equal to 3
  * @grid: 3x3 grid to check
  * Return: 1 if grid is stable, otherwise 0
@@ -26,7 +46,9 @@ int is_stabilized_sandpile(int grid[3][3])
  */
 void sandpiles_sum(int grid1[3][3], int grid2[3][3])
 {
-	int i, j;
+	int i, j, base;
+
+	base = 0;
 
 	for (int i = 0; i < 3; i++)
 		for (int j = 0; j < 3; j++)
@@ -34,6 +56,8 @@ void sandpiles_sum(int grid1[3][3], int grid2[3][3])
 
 	while (!is_stabilized_sandpile(grid1))
 	{
+		printf("=\n");
+		print_grid(grid1);
 		for (i = 0; i < 3; i++)
 		{
 			for (j = 0; j < 3; j++)
@@ -51,5 +75,12 @@ void sandpiles_sum(int grid1[3][3], int grid2[3][3])
 				grid1[i][j] -= 4;
 			}
 		}
+		base++;
+	}
+
+	if (base)
+	{
+		printf("=\n");
+		print_grid(grid1);
 	}
 }
