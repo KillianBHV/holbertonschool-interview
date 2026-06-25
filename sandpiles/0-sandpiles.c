@@ -74,4 +74,6 @@ void sandpiles_sum(int grid1[3][3], int grid2[3][3])
 			}
 		}
 	}
+	if (is_stabilized_sandpile(grid1))
+		break;
 }
