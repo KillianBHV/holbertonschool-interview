@@ -58,6 +58,11 @@ void sandpiles_sum(int grid1[3][3], int grid2[3][3])
 	{
 		for (i = 0; i < 3; i++)
 		{
+			if (base)
+			{
+				printf("=\n");
+				print_grid(grid1);
+			}
 			for (j = 0; j < 3; j++)
 			{
 				if (grid1[i][j] <= 3)
@@ -72,11 +77,6 @@ void sandpiles_sum(int grid1[3][3], int grid2[3][3])
 					grid1[i + 1][j] += 1;
 				grid1[i][j] -= 4;
 			}
-		}
-		if (base)
-		{
-			printf("=\n");
-			print_grid(grid1);
 		}
 		base++;
 	}
