@@ -46,7 +46,7 @@ int is_stabilized_sandpile(int grid[3][3])
  */
 void sandpiles_sum(int grid1[3][3], int grid2[3][3])
 {
-	int i, j;
+	int i, j, base = 0;
 
 	for (int i = 0; i < 3; i++)
 		for (int j = 0; j < 3; j++)
@@ -56,7 +56,8 @@ void sandpiles_sum(int grid1[3][3], int grid2[3][3])
 	{
 		for (i = 0; i < 3; i++)
 		{
-			print_grid(grid1);
+			if (base == 0)
+				print_grid(grid1);
 			for (j = 0; j < 3; j++)
 			{
 				if (grid1[i][j] <= 3)
@@ -71,6 +72,7 @@ void sandpiles_sum(int grid1[3][3], int grid2[3][3])
 					grid1[i + 1][j] += 1;
 				grid1[i][j] -= 4;
 			}
+			base++;
 		}
 	}
 }
