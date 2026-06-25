@@ -78,7 +78,7 @@ void sandpiles_sum(int grid1[3][3], int grid2[3][3])
 		base++;
 	}
 
-	if (base)
+	if (base == 0)
 	{
 		printf("=\n");
 		print_grid(grid1);
