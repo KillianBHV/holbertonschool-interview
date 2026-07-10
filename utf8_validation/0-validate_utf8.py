@@ -1,14 +1,16 @@
 #!/usr/bin/python3
 
+
 """UTF-8 Checking
 """
+
 
 def validUTF8(data):
     """Checks if a list of numbers forms a valid UTF-8 data
 
     Args:
         data: list to check
-    
+
     Returns:
         True if list is actually valid, 0 otherwise.
     """
