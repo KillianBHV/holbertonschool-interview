@@ -46,6 +46,7 @@ def validUTF8(data):
 
         k += offset
         k += 1
+        offset = 0
 
     if offset == 0:
         return True
